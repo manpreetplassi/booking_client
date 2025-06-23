@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Admin from './components/dashboard/Admin'
+import DefaultLayout from './components/DefaultLayout'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-        
+        <DefaultLayout>
+        <Admin></Admin>
+        </DefaultLayout>
       </div>
     </>
   )

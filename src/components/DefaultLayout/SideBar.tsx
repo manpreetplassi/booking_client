@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"; // or `next/link` if using Next.js
 
 const roleBasedMenu = {
   receptionist: [
@@ -20,24 +19,27 @@ const roleBasedMenu = {
 };
 
 const SideBar = ({role}: {role: string}) => {
- 
+
     const [tabs, setTabs] = useState<any[]>()
-    useEffect(()=>{
+    useEffect(() => {
         switch (role) {
             case "admin":
                 setTabs(roleBasedMenu.admin)
                 break;
-        
             default:
                 break;
         }
     }, [role])
 
   return (
-    <div className="sidebar">
-      <ul>
-
-      </ul>
+    <div className="sidebar ">
+        {tabs?.map((el, index) => (
+          (
+            <div className="tab_box" key={index}>
+              <div  className="tab">{el.name}</div>
+            </div>
+          )
+          ))}
     </div>
   );
 };

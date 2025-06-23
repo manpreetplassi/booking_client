@@ -1,11 +1,15 @@
-import SideBar from "./SideBar"
+import Header from "../dashboard/Header";
+import SideBar from "./SideBar";
 
-const DefaultLayout = () => {
+const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
+  console.log("enjbcej c")
   return (
     <div>
-      <SideBar></SideBar>
+      <Header></Header>
+      <SideBar role="admin" />
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default DefaultLayout
+export default DefaultLayout;
