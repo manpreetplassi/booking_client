@@ -1,0 +1,45 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // or `next/link` if using Next.js
+
+const roleBasedMenu = {
+  receptionist: [
+    { name: "Dashboard", path: "/dashboard/receptionist" },
+    { name: "Appointments", path: "/dashboard/receptionist/appointments" },
+    { name: "Add Appointment", path: "/dashboard/receptionist/add" },
+  ],
+  doctor: [
+    { name: "Dashboard", path: "/dashboard/doctor" },
+    { name: "My Appointments", path: "/dashboard/doctor/appointments" },
+  ],
+  admin: [
+    { name: "Dashboard", path: "/dashboard/admin" },
+    { name: "Manage Doctors", path: "/dashboard/admin/doctors" },
+    { name: "Manage Departments", path: "/dashboard/admin/departments" },
+    { name: "Manage Users", path: "/dashboard/admin/users" },
+  ]
+};
+
+const SideBar = ({role}: {role: string}) => {
+ 
+    const [tabs, setTabs] = useState<any[]>()
+    useEffect(()=>{
+        switch (role) {
+            case "admin":
+                setTabs(roleBasedMenu.admin)
+                break;
+        
+            default:
+                break;
+        }
+    }, [role])
+
+  return (
+    <div className="sidebar">
+      <ul>
+
+      </ul>
+    </div>
+  );
+};
+
+export default SideBar;
