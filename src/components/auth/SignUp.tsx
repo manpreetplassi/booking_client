@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 import logo from "../../../public/logo.svg"
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 const fields = [
   {
     label: "Email address",
@@ -11,21 +11,27 @@ const fields = [
     label: "Password",
     placeholder: "Enter your password",
     type: "password"
-  }
+  },
+  {
+    label: "Confirm Password",
+    placeholder: "Confirm your password",
+    type: "password"
+  },
 ]
-
 interface FormData {
   email: string;
   password: string;
+  confirmPassword: string;
 }
-
-const Login = () => {
+const SignUp = () => {
   const [ formData, setFormData ] = React.useState<FormData>({
     email: "",
-    password: ""
+    password: "",
+    confirmPassword: ""
   });
-  const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // Handle form submission
     console.log(formData);
     return
   }
@@ -56,15 +62,15 @@ const Login = () => {
                   <input className='bg-amber-400' type="checkbox"></input>
                   <label>Remember me</label>
                 </span>
-                <button className='text-blue-400' type='button' >Forget password?</button>
+                {/* <button className='text-blue-400' type='button' >Forget password?</button> */}
               </div>
               <div className='w-full flex flex-col'>
-                <button type='submit' className='bg-blue-500 px-4 py-2 rounded-2xl '>Login</button>
+                <button type='submit' className='bg-blue-500 px-4 py-2 rounded-2xl '>Register here</button>
+              </div>
+              <div className='w-full flex flex-col'>
+                <Link to="/login" className='text-blue-500 px-4 py-2 rounded-2xl '>Login here</Link>
               </div>
             </form>
-              <div className='w-full flex flex-col'>
-                <Link to="/signup" className='text-blue-500 px-4 py-2 rounded-2xl '>Register here</Link>
-              </div>
           </div>
         </div>
       </div>
@@ -72,4 +78,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from '../../assets/react.svg'
+import logo from '../../../../assets/logo.svg'
 import { useNavigate } from "react-router-dom";
 
 const roleBasedMenu = {
